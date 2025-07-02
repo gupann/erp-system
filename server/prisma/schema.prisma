@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// enums to keep track of status
+enum tx_direction {
+  inbound
+  outbound
+}
+
+enum tx_status {
+  fulfilled
+  unfulfilled
+}
+
+enum po_status {
+  Pending
+  Accepted
+  Rejected
+}
+
+model party {
+  party_id Int    @id @default(autoincrement())
+  name     String
+  role     String // 'buyer' or 'seller'
+
+  inventory_tx   inventory_tx[] // for both buyers and sellers
+  purchase_order purchase_order[] @relation("BuyerRelation")
+}
+
+model material {
+  material_id Int    @id @default(autoincrement())
+  name        String
+
+  inventory_tx   inventory_tx[]
+  stockpile      stockpile[]
+  purchase_order purchase_order[]
+}
+
+model inventory_tx {
+  tx_id        Int          @id @default(autoincrement())
+  direction    tx_direction
+  party_id     Int?
+  material_id  Int?
+  qty_net      Float
+  qty_adjusted Float?
+  status       tx_status
+  recorded_at  DateTime     @default(now())
+
+  party    party?    @relation(fields: [party_id], references: [party_id])
+  material material? @relation(fields: [material_id], references: [material_id])
+}
+
+model stockpile {
+  stock_id        Int     @id @default(autoincrement())
+  material_id     Int
+  weight_actual   Float
+  value_appraised Float?
+  origin          String?
+  metal_details   String?
+
+  material material @relation(fields: [material_id], references: [material_id])
+}
+
+model purchase_order {
+  po_id       Int       @id @default(autoincrement())
+  buyer_id    Int
+  material_id Int
+  quantity    Float
+  bid_amount  Float
+  status      po_status @default(Pending)
+  terms       String?
+  created_at  DateTime  @default(now())
+
+  buyer    party    @relation("BuyerRelation", fields: [buyer_id], references: [party_id])
+  material material @relation(fields: [material_id], references: [material_id])
+}

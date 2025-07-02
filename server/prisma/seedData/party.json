@@ -1,0 +1,7 @@
+[
+    { "party_id": 1, "name": "Seaside Scrap Co",   "role": "seller" },
+    { "party_id": 2, "name": "Golden Metals LLC",  "role": "seller" },
+    { "party_id": 3, "name": "Oceanview Foundry",  "role": "buyer"  },
+    { "party_id": 4, "name": "DeepSea Alloys",     "role": "buyer"  }
+]
+  
