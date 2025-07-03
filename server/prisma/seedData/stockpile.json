@@ -1,27 +1,23 @@
 [
-    {
-      "stock_id": 1,
-      "material_id": 1,
-      "weight_actual": 700.20,
-      "value_appraised": 5600.00,
-      "origin": "Lot-A23",
-      "metal_details": "{\"Cu\":99.1,\"Sn\":0.3,\"Zn\":0.6}"
-    },
-    {
-      "stock_id": 2,
-      "material_id": 2,
-      "weight_actual": 845.60,
-      "value_appraised": 4300.00,
-      "origin": "Vendor-GM",
-      "metal_details": "{\"Cu\":75.0,\"Zn\":24.5,\"Fe\":0.5}"
-    },
-    {
-      "stock_id": 3,
-      "material_id": 3,
-      "weight_actual": 1500.00,
-      "value_appraised": 2250.00,
-      "origin": "Lot-B12",
-      "metal_details": null
-    }
+  {
+    "material_id": 1,
+    "weight_actual": 700.20,
+    "value_appraised": 5600.00,
+    "origin": "Lot-A23",
+    "metal_details": "{\"Cu\":99.1,\"Sn\":0.3,\"Zn\":0.6}"
+  },
+  {
+    "material_id": 2,
+    "weight_actual": 845.60,
+    "value_appraised": 4300.00,
+    "origin": "Vendor-GM",
+    "metal_details": "{\"Cu\":75.0,\"Zn\":24.5,\"Fe\":0.5}"
+  },
+  {
+    "material_id": 3,
+    "weight_actual": 1500.00,
+    "value_appraised": 2250.00,
+    "origin": "Lot-B12",
+    "metal_details": null
+  }
 ]
-  

@@ -10,6 +10,12 @@ const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const morgan_1 = __importDefault(require("morgan"));
 // route imports
+const dashboard_routes_1 = __importDefault(require("./routes/dashboard.routes"));
+const party_routes_1 = __importDefault(require("./routes/party.routes"));
+const material_routes_1 = __importDefault(require("./routes/material.routes"));
+const inventoryTx_routes_1 = __importDefault(require("./routes/inventoryTx.routes"));
+const stockpile_routes_1 = __importDefault(require("./routes/stockpile.routes"));
+const purchaseOrder_routes_1 = __importDefault(require("./routes/purchaseOrder.routes"));
 // configs
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -21,6 +27,12 @@ app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use((0, cors_1.default)());
 // routes
+app.use("/api/dashboard", dashboard_routes_1.default);
+app.use("/api/parties", party_routes_1.default);
+app.use("/api/materials", material_routes_1.default);
+app.use("/api/inventory", inventoryTx_routes_1.default);
+app.use("/api/stockpiles", stockpile_routes_1.default);
+app.use("/api/purchase-orders", purchaseOrder_routes_1.default);
 // server
 const port = Number(process.env.PORT) || 3001;
 app.listen(port, "0.0.0.0", () => {
