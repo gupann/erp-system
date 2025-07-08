@@ -69,7 +69,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_BASE_URL}/api`,
   }),
-  tagTypes: ["Dashboard", "Inventory", "Stockpiles"],
+  tagTypes: ["Dashboard", "Inventory", "Stockpiles", "PurchaseOrders"],
 
   endpoints: (build) => ({
     getDashboard: build.query<DashboardSummary, void>({
@@ -89,7 +89,11 @@ export const api = createApi({
       query: () => "/stockpiles",
       providesTags: ["Stockpiles"],
     }),
+    listPurchaseOrders: build.query<PurchaseOrder[], void>({
+      query: () => "/purchase-orders",
+      providesTags: ["PurchaseOrders"],
+    }),
   }),
 });
 
-export const { useGetDashboardQuery, useListInventoryTxQuery, useListStockpilesQuery } = api;
+export const { useGetDashboardQuery, useListInventoryTxQuery, useListStockpilesQuery, useListPurchaseOrdersQuery } = api;
