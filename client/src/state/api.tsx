@@ -69,13 +69,22 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_BASE_URL}/api`,
   }),
-  tagTypes: ["Dashboard"],
+  tagTypes: ["Dashboard", "Inventory"],
   endpoints: (build) => ({
     getDashboard: build.query<DashboardSummary, void>({
       query: () => "/dashboard",
       providesTags: ["Dashboard"],
     }),
+    listInventoryTx: build.query<InventoryTx[], { direction?: Direction; material_id?: number }>({
+      query: ({ direction, material_id }) => {
+        const params = new URLSearchParams();
+        if (direction) params.append("direction", direction);
+        if (material_id !== undefined) params.append("material_id", material_id.toString());
+        return `/inventory?${params.toString()}`;
+      },
+      providesTags: ["Inventory"],
+    }),
   }),
 });
 
-export const { useGetDashboardQuery } = api;
+export const { useGetDashboardQuery, useListInventoryTxQuery } = api;
