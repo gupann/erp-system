@@ -3,6 +3,9 @@ import CardRecentTx from "./CardRecentTx";
 import CardStockpileSummary from "./CardStockpileSummary"
 import CardSalesSummary from "./CardSalesSummary"
 import CardPendingPO from "./CardPendingPO";
+import CardQuickEntry from './CardQuickEntry';
+import CardEditStockpile from './CardEditStockpile';
+import CardPOActions from './CardPOActions';
 
 const Dashboard = () => {
   return (
@@ -11,9 +14,10 @@ const Dashboard = () => {
       <CardStockpileSummary/>
       <CardSalesSummary />
       <CardPendingPO />
-      <div className='md-row-span-1 xl:row-span-2 bg-gray-500'/>
-      <div className='md-row-span-1 xl:row-span-2 bg-gray-500'/>
-      <div className='md-row-span-1 xl:row-span-2 bg-gray-500'/>
+      <CardQuickEntry />
+      <CardEditStockpile />
+      <CardPOActions />
+
     </div>
   );
 };
