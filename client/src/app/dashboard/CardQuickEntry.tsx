@@ -1,6 +1,6 @@
 "use client";
 
-import { FilePlus2, CheckSquare } from "lucide-react";
+import { FilePlus2, Pencil } from "lucide-react";
 import React from "react";
 
 interface Props {
@@ -25,9 +25,9 @@ const CardQuickEntry: React.FC<Props> = ({
 
     <button
       onClick={onEdit}
-      className="flex flex-col items-center text-red-600 hover:text-red-700"
+      className="flex flex-col items-center text-blue-600 hover:text-blue-700"
     >
-      <CheckSquare className="w-10 h-10 mb-1" />
+      <Pencil className="w-10 h-10 mb-1" />
       <span className="text-sm font-medium">Edit</span>
     </button>
   </div>

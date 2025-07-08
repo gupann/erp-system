@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { CircularProgress, Typography } from "@mui/material";
+import { Plus, Pencil } from "lucide-react";
 
 interface InventoryTx {
   tx_id: number;
@@ -79,28 +80,53 @@ export default function InventoryPage() {
       });
   }, []);
 
+  const handleAdd = () => {
+    alert("add movement form");
+  };
+
+  const handleEdit = () => {
+    alert("edit movement form");
+  };
+
   return (
-    <Box sx={{ height: 600, width: "100%", p: 4 }}>
-      {loading ? (
-        <div className="flex justify-center mt-10">
-          <CircularProgress />
-        </div>
-      ) : error ? (
-        <Typography color="error">Failed to load data.</Typography>
-      ) : (
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          getRowId={(row) => row.tx_id}
-          initialState={{
-            pagination: { paginationModel: { pageSize: 5 } },
-          }}
-          pageSizeOptions={[5, 10, 25]}
-          checkboxSelection
-          disableRowSelectionOnClick
-          className="bg-white shadow rounded-lg border border-gray-200 !text-gray-700"
-        />
-      )}
-    </Box>
+    <Box sx={{ height: 650, width: "100%", p: 4 }}>
+    <div className="flex justify-end gap-4 mb-4">
+      <button
+        onClick={handleAdd}
+        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-green-600 text-white hover:bg-green-700"
+      >
+        <Plus className="w-5 h-5" />
+        Record Movement
+      </button>
+      <button
+        onClick={handleEdit}
+        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+      >
+        <Pencil className="w-5 h-5" />
+        Edit Movement
+      </button>
+    </div>
+
+    {loading ? (
+      <div className="flex justify-center mt-10">
+        <CircularProgress />
+      </div>
+    ) : error ? (
+      <Typography color="error">Failed to load data.</Typography>
+    ) : (
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        getRowId={(row) => row.tx_id}
+        initialState={{
+          pagination: { paginationModel: { pageSize: 5 } },
+        }}
+        pageSizeOptions={[5, 10, 25]}
+        checkboxSelection
+        disableRowSelectionOnClick
+        className="bg-white shadow rounded-lg border border-gray-200 !text-gray-700"
+      />
+    )}
+  </Box>
   );
 }
