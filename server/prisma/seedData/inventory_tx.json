@@ -1,29 +1,21 @@
 [
-  {
-    "direction": "inbound",
-    "party_id": 1,
-    "material_id": 1,
-    "qty_net": 1200.50,
-    "qty_adjusted": 1194.30,
-    "status": "fulfilled",
-    "recorded_at": "2025-07-01T09:15:00Z"
-  },
-  {
-    "direction": "inbound",
-    "party_id": 2,
-    "material_id": 2,
-    "qty_net": 850.00,
-    "qty_adjusted": 845.60,
-    "status": "fulfilled",
-    "recorded_at": "2025-07-02T11:40:00Z"
-  },
-  {
-    "direction": "outbound",
-    "party_id": 3,
-    "material_id": 1,
-    "qty_net": 500.00,
-    "qty_adjusted": null,
-    "status": "unfulfilled",
-    "recorded_at": "2025-07-03T14:05:00Z"
-  }
+  { "direction": "inbound",  "party_id": 1, "material_id": 1, "qty_net": 1200.5, "qty_adjusted": 1194.3, "status": "fulfilled",   "recorded_at": "2025-07-01T09:15:00Z" },
+
+  { "direction": "inbound",  "party_id": 2, "material_id": 2, "qty_net": 850.0,  "qty_adjusted": 845.6, "status": "fulfilled",   "recorded_at": "2025-07-01T11:40:00Z" },
+
+  { "direction": "inbound",  "party_id": 5, "material_id": 5, "qty_net": 600.0,  "qty_adjusted": 598.1, "status": "fulfilled",   "recorded_at": "2025-07-02T08:20:00Z" },
+
+  { "direction": "inbound",  "party_id": 1, "material_id": 3, "qty_net": 1500.0, "qty_adjusted": null,  "status": "fulfilled",   "recorded_at": "2025-07-02T13:05:00Z" },
+
+  { "direction": "outbound", "party_id": 3, "material_id": 1, "qty_net": 500.0,  "qty_adjusted": null,  "status": "unfulfilled", "recorded_at": "2025-07-03T14:05:00Z" },
+
+  { "direction": "inbound",  "party_id": 1, "material_id": 4, "qty_net": 1000.0, "qty_adjusted": 995.4, "status": "fulfilled",   "recorded_at": "2025-07-03T16:45:00Z" },
+
+  { "direction": "outbound", "party_id": 4, "material_id": 2, "qty_net": 300.0,  "qty_adjusted": null,  "status": "fulfilled",   "recorded_at": "2025-07-04T10:00:00Z" },
+
+  { "direction": "inbound",  "party_id": 1, "material_id": 1, "qty_net": 700.0,  "qty_adjusted": 698.7, "status": "fulfilled",   "recorded_at": "2025-07-05T09:30:00Z" },
+
+  { "direction": "inbound",  "party_id": 2, "material_id": 3, "qty_net": 600.0,  "qty_adjusted": null,  "status": "fulfilled",   "recorded_at": "2025-07-06T12:10:00Z" },
+
+  { "direction": "outbound", "party_id": 3, "material_id": 3, "qty_net": 400.0,  "qty_adjusted": null,  "status": "unfulfilled", "recorded_at": "2025-07-07T15:20:00Z" }
 ]

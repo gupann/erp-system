@@ -1,20 +1,27 @@
 [
-    {
-      "buyer_id":   3,
-      "material_id": 1,
-      "quantity": 500.00,
-      "bid_amount": 4200.00,
-      "status": "Pending",
-      "terms": "FOB yard, payment NET 15",
-      "created_at": "2025-07-03T14:00:00Z"
-    },
-    {
-      "buyer_id":   4,
-      "material_id": 2,
-      "quantity": 300.00,
-      "bid_amount": 1800.00,
-      "status": "Accepted",
-      "terms": "Delivery by 2025-07-06",
-      "created_at": "2025-07-02T10:30:00Z"
-    }
+  {
+    "buyer_id": 3, "material_id": 1, "quantity": 500,  "bid_amount": 4200,
+    "status": "Pending",  "terms": "FOB yard, NET 15",
+    "created_at": "2025-07-03T14:00:00Z"
+  },
+  {
+    "buyer_id": 4, "material_id": 2, "quantity": 300,  "bid_amount": 1800,
+    "status": "Accepted", "terms": "Delivery by 07-06",
+    "created_at": "2025-07-02T10:30:00Z"
+  },
+  {
+    "buyer_id": 3, "material_id": 3, "quantity": 1200, "bid_amount": 6000,
+    "status": "Pending",  "terms": "Payment on scale-ticket",
+    "created_at": "2025-07-08T09:00:00Z"
+  },
+  {
+    "buyer_id": 4, "material_id": 5, "quantity": 400,  "bid_amount": 2600,
+    "status": "Accepted", "terms": "Pickup 07-05",
+    "created_at": "2025-07-04T12:00:00Z"
+  },
+  {
+    "buyer_id": 3, "material_id": 4, "quantity": 800,  "bid_amount": 4800,
+    "status": "Rejected", "terms": "Bid too low",
+    "created_at": "2025-07-06T15:00:00Z"
+  }
 ]
