@@ -1,0 +1,29 @@
+[
+  {
+    "direction": "inbound",
+    "party_id": 1,
+    "material_id": 1,
+    "qty_net": 1200.50,
+    "qty_adjusted": 1194.30,
+    "status": "fulfilled",
+    "recorded_at": "2025-07-01T09:15:00Z"
+  },
+  {
+    "direction": "inbound",
+    "party_id": 2,
+    "material_id": 2,
+    "qty_net": 850.00,
+    "qty_adjusted": 845.60,
+    "status": "fulfilled",
+    "recorded_at": "2025-07-02T11:40:00Z"
+  },
+  {
+    "direction": "outbound",
+    "party_id": 3,
+    "material_id": 1,
+    "qty_net": 500.00,
+    "qty_adjusted": null,
+    "status": "unfulfilled",
+    "recorded_at": "2025-07-03T14:05:00Z"
+  }
+]
