@@ -1,11 +1,11 @@
 // reference – https://mui.com/x/react-data-grid/
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { CircularProgress, Typography } from "@mui/material";
-import { Plus, Pencil } from "lucide-react";
+import {Pencil, SearchIcon } from "lucide-react";
 
 interface Material {
   material_id: number;
@@ -72,6 +72,7 @@ export default function StockpilesPage() {
   const [rows, setRows] = useState<Stockpile[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/stockpiles`)
@@ -86,19 +87,32 @@ export default function StockpilesPage() {
       });
   }, []);
 
-//   const handleAdd = () => alert("add stockpile form");
+
   const handleEdit = () => alert("edit stockpile form");
 
+    const filteredRows = useMemo(() => {
+        if (!search.trim()) return rows;
+        const s = search.toLowerCase();
+        return rows.filter((r) =>
+            r.material?.name?.toLowerCase().includes(s) ||
+            r.origin?.toLowerCase().includes(s) ||
+            r.stock_id.toString().includes(s)
+        );
+    }, [rows, search]);
+      
   return (
     <Box sx={{ height: 650, width: "100%", p: 4 }}>
-      <div className="flex justify-end gap-4 mb-4">
-        {/* <button
-          onClick={handleAdd}
-          className="flex items-center gap-2 px-6 py-3 rounded-lg bg-green-600 text-white hover:bg-green-700"
-        >
-          <Plus className="w-5 h-5" />
-          Add Stockpile
-        </button> */}
+    <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
+        <div className="flex items-center border-2 border-gray-300 rounded-lg px-3 py-2 w-48 md:w-80 lg:w-[30rem] bg-white">
+            <SearchIcon className="w-5 h-5 text-gray-500 mr-3" />
+            <input
+                type="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search stockpiles…"
+                className="flex-1 outline-none text-sm bg-transparent"
+            />
+        </div>
         <button
           onClick={handleEdit}
           className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
@@ -116,7 +130,7 @@ export default function StockpilesPage() {
         <Typography color="error">Failed to load data.</Typography>
       ) : (
         <DataGrid
-          rows={rows}
+          rows={filteredRows}
           columns={stockpileColumns}
           getRowId={(row) => row.stock_id}
           initialState={{
