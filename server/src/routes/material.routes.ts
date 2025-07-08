@@ -1,7 +1,9 @@
-import { Router } from "express";
-import { listMaterials, createMaterial } from "../controllers/material.controller";
-const r = Router();
+import express from "express";
+import { createMaterial, listMaterials } from "../controllers/material.controller";
 
-r.get("/",  listMaterials);
-r.post("/", createMaterial);
-export default r;
+const router = express.Router();
+
+router.get("/", listMaterials);
+router.post("/", createMaterial);
+
+export default router;

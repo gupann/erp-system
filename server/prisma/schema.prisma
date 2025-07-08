@@ -41,7 +41,7 @@ model party {
 
 model material {
   material_id Int    @id @default(autoincrement())
-  name        String
+  name        String @unique
 
   inventory_tx   inventory_tx[]
   stockpile      stockpile[]
