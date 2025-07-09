@@ -32,8 +32,13 @@ app.use("/api/inventory", inventoryTxRoutes);
 app.use("/api/stockpiles", stockpileRoutes);
 app.use("/api/purchase-orders", purchaseOrderRoutes);
 
+export default app;
+
 // server
-const port = Number(process.env.PORT) || 3001;
-app.listen(port, "0.0.0.0", () => {
-  console.log(`Server running on port ${port}`);
-});
+/* ---------- local dev only ---------- */
+if (process.env.VERCEL !== "1") {   // Vercel injects VERCEL=1
+  const port = Number(process.env.PORT) || 8000;
+  app.listen(port, "0.0.0.0", () =>
+    console.log(`Server running on http://localhost:${port}`)
+  );
+}
