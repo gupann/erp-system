@@ -5,6 +5,8 @@ A monorepo containing a React/Next.js front‑end (client/) and an Express/TypeS
 ## Demo
 https://youtu.be/IXBEEPGEJQo
 
+https://tinyurl.com/erp-user-flow
+
 ## Deployed on Vercel
 https://erp-system-optica.vercel.app/
 
@@ -95,6 +97,7 @@ npx prisma generate              # generate the Prisma client
 npx prisma migrate dev --name init   # create migration + setup tables
 npm run seed            # seed demo data (optional)
 ```
+Using Neon (serverless PostgreSQL) for cloud database. Needed for backend server deployment.
 
 <img width="1469" alt="Screenshot 2025-07-08 at 7 15 59 PM" src="https://github.com/user-attachments/assets/1d08aed4-21c6-4732-bcc2-816260ebff63" />
 
@@ -118,3 +121,4 @@ npm run seed            # seed demo data (optional)
 3. Manage stockpiles on manage page - can view and edit records
 4. Manage transactions on transactions page - can view and edit P.O.s
 
+https://tinyurl.com/erp-user-flow
