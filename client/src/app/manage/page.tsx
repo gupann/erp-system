@@ -88,7 +88,7 @@ export default function StockpilesPage() {
   }, []);
 
 
-  const handleEdit = () => alert("edit stockpile form");
+  const handleEdit = () => alert("Future work! - allow edit of stockpile entries");
 
     const filteredRows = useMemo(() => {
         if (!search.trim()) return rows;
@@ -134,7 +134,7 @@ export default function StockpilesPage() {
           columns={stockpileColumns}
           getRowId={(row) => row.stock_id}
           initialState={{
-            pagination: { paginationModel: { pageSize: 5 } },
+            pagination: { paginationModel: { pageSize: 10 } },
           }}
           pageSizeOptions={[5, 10, 25]}
           checkboxSelection

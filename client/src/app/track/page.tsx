@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { CircularProgress, Typography } from "@mui/material";
 import { Plus, Pencil, SearchIcon } from "lucide-react";
-
+import RecordMovementDialog from "../(components)/RecordMovementDialog";
 interface InventoryTx {
   tx_id: number;
   direction: "inbound" | "outbound";
@@ -67,6 +67,7 @@ export default function InventoryPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [search, setSearch] = useState("");
+  const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/inventory`)
@@ -82,11 +83,11 @@ export default function InventoryPage() {
   }, []);
 
   const handleAdd = () => {
-    alert("add movement form");
+    setShowDialog(true);
   };
 
   const handleEdit = () => {
-    alert("edit movement form");
+    alert("Future work! - allow edit of in/outbound entries");
   };
 
   const filteredRows = useMemo(() => {
@@ -145,7 +146,7 @@ export default function InventoryPage() {
         columns={columns}
         getRowId={(row) => row.tx_id}
         initialState={{
-          pagination: { paginationModel: { pageSize: 5 } },
+          pagination: { paginationModel: { pageSize: 10 } },
         }}
         pageSizeOptions={[5, 10, 25]}
         checkboxSelection
@@ -153,6 +154,12 @@ export default function InventoryPage() {
         className="bg-white shadow rounded-lg border border-gray-200 !text-gray-700"
       />
     )}
+    {showDialog && (
+      <RecordMovementDialog
+        open={showDialog}
+        onClose={() => setShowDialog(false)}
+      />
+    )}  
   </Box>
   );
 }

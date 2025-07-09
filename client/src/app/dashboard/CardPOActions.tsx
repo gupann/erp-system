@@ -10,7 +10,7 @@ interface Props {
 
 const CardPOActions: React.FC<Props> = ({
   onCreate = () => alert("create PO form"),
-  onManage = () => alert("edit PO form"),
+  onManage = () => alert("Future work! - allow edit of PO entries"),
 }) => (
   <div className="row-span-1 rounded-2xl flex items-center justify-around px-6">
     <button

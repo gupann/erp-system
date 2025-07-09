@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { CircularProgress, Typography } from "@mui/material";
 import { Plus, Pencil, SearchIcon } from "lucide-react";
-
+import AddPODialog from '../(components)/AddPODialog';
 interface PurchaseOrder {
     po_id: number;
     created_at: string;
@@ -79,7 +79,7 @@ export default function TransactionsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [search, setSearch] = useState("");
-
+  const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/purchase-orders`)
@@ -95,11 +95,11 @@ export default function TransactionsPage() {
   }, []);
 
   const handleAdd = () => {
-    alert("add PO form");
+    setShowDialog(true);
   };
 
   const handleEdit = () => {
-    alert("edit PO form");
+    alert("Future work! - allow edit of PO entries");
   };
 
   const filteredRows = useMemo(() => {
@@ -157,7 +157,7 @@ export default function TransactionsPage() {
         columns={poColumns}
         getRowId={(row) => row.po_id}
         initialState={{
-          pagination: { paginationModel: { pageSize: 5 } },
+          pagination: { paginationModel: { pageSize: 10 } },
         }}
         pageSizeOptions={[5, 10, 25]}
         checkboxSelection
@@ -165,6 +165,13 @@ export default function TransactionsPage() {
         className="bg-white shadow rounded-lg border border-gray-200 !text-gray-700"
       />
     )}
+    {showDialog && (
+      <AddPODialog
+        open={showDialog}
+        onClose={() => setShowDialog(false)}
+        onSaved={() => {setShowDialog(false)}}
+      />
+    )}  
   </Box>
   );
 }

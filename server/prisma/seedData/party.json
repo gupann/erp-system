@@ -1,8 +1,12 @@
 [
-    { "name": "Seaside Scrap Co",   "role": "seller" },
-    { "name": "Golden Metals LLC",  "role": "seller" },
-    { "name": "Oceanview Foundry",  "role": "buyer"  },
-    { "name": "DeepSea Alloys",     "role": "buyer"  },
-    { "name": "Harbor Salvage Ltd", "role": "seller" }
-  ]
-  
+  { "name": "Seaside Scrap Co",   "role": "seller" },
+  { "name": "Golden Metals LLC",  "role": "seller" },
+  { "name": "Oceanview Foundry",  "role": "buyer"  },
+  { "name": "DeepSea Alloys",     "role": "buyer"  },
+  { "name": "Harbor Salvage Ltd", "role": "seller" },
+  { "name": "Coastal Recyclers Inc",   "role": "seller" },
+  { "name": "National Metal Traders",  "role": "seller" },
+  { "name": "EcoGreen Materials",      "role": "seller" },
+  { "name": "Metro Foundries",         "role": "buyer"  },
+  { "name": "Universal Scrap Brokers", "role": "buyer"  }
+]
