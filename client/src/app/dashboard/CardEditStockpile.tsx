@@ -8,7 +8,7 @@ interface Props {
 }
 
 const CardEditStockpile: React.FC<Props> = ({
-  onEdit = () => alert("edit stockpile form"),
+  onEdit = () => alert("Future work! - allow edit of stockpile entries"),
 }) => (
   <div className="row-span-1 rounded-2xl flex flex-col items-center justify-center">
     <button

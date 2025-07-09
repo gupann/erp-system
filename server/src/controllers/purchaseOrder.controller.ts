@@ -15,15 +15,21 @@ export const listPOs = async (req:Request,res:Response) => {
 
 export const createPO = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { buyer_id, material_id, quantity, bid_amount, terms } = req.body;
+    const { buyer_id, material_id, quantity, bid_amount, status, terms } = req.body;
 
     if (!buyer_id || !material_id || !quantity || !bid_amount) {
       res.status(400).json({ message: "Missing required fields" });
       return;
     }
 
+    if (status && !Object.values(po_status).includes(status)) {
+      res.status(400).json({ message: "Invalid status value" });
+      return;
+    }
+
     const po = await prisma.purchase_order.create({
-      data: { buyer_id, material_id, quantity, bid_amount, terms },
+      data: { buyer_id, material_id, quantity, bid_amount, terms, status: status ?? po_status.Pending },
+      include: { buyer: true, material: true },
     });
 
     res.status(201).json(po);

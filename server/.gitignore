@@ -6,7 +6,7 @@ node_modules/
 .env.*
 
 # Build output
-dist/
+**/dist/
 
 # Prisma generated files
 /generated/

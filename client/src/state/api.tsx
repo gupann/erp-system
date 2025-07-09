@@ -93,7 +93,44 @@ export const api = createApi({
       query: () => "/purchase-orders",
       providesTags: ["PurchaseOrders"],
     }),
+    listMaterials: build.query<Material[], void>({
+      query: () => "/materials",
+      providesTags: ["Inventory"],
+    }),
+    
+    listParties: build.query<Party[], void>({
+      query: () => "/parties",
+      providesTags: ["Inventory"],
+    }),
+
+    createInventoryTx: build.mutation<InventoryTx, Partial<InventoryTx>>({
+      query: (body) => ({
+        url: "/inventory",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Inventory", "Dashboard"],
+    }),
+    createMaterial: build.mutation<Material, Pick<Material, "name">>({
+      query: (body) => ({ url: "/materials", method: "POST", body }),
+      invalidatesTags: ["Inventory"],   // or a “Materials” tag if you prefer
+    }),
+    createParty: build.mutation<Party, Pick<Party, "name" | "role">>({
+      query: (body) => ({ url: "/parties", method: "POST", body }),
+      invalidatesTags: ["Inventory"],
+    }),
+    createPurchaseOrder: build.mutation<PurchaseOrder, Partial<PurchaseOrder>>({
+      query: (body) => ({
+        url: "/purchase-orders",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["PurchaseOrders", "Dashboard"],
+    }),
+    
   }),
 });
 
-export const { useGetDashboardQuery, useListInventoryTxQuery, useListStockpilesQuery, useListPurchaseOrdersQuery } = api;
+export const { useGetDashboardQuery, useListInventoryTxQuery, useListStockpilesQuery, 
+  useListPurchaseOrdersQuery, useListMaterialsQuery, useListPartiesQuery, useCreateInventoryTxMutation, 
+  useCreateMaterialMutation, useCreatePartyMutation, useCreatePurchaseOrderMutation} = api;

@@ -1,8 +1,17 @@
 [
-    { "name": "Copper #1" },
-    { "name": "Brass – Red" },
-    { "name": "Aluminum Scrap" },
-    { "name": "Stainless Steel 304" },
-    { "name": "Copper #2" }
-  ]
-  
+  { "name": "Copper #1" },
+  { "name": "Brass – Red" },
+  { "name": "Aluminum Scrap" },
+  { "name": "Stainless Steel 304" },
+  { "name": "Copper #2" },
+  { "name": "Nickel Alloy" },
+  { "name": "Zinc Ingots" },
+  { "name": "Lead Scrap" },
+  { "name": "Titanium Chips" },
+  { "name": "Plastic Pellets" },
+  { "name": "Rubber Shreds" },
+  { "name": "Glass Cullets" },
+  { "name": "Electronic Scrap" },
+  { "name": "Paper Bales" },
+  { "name": "Wood Pallets" }
+]

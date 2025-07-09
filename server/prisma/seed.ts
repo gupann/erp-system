@@ -26,13 +26,13 @@ async function main() {
   const dataDirectory = path.join(__dirname, "seedData");
 
   const orderedFileNames = [
-    "party.json",         // no dependencies
-    "material.json",      // no dependencies
-    "stockpile.json",     // needs material_id
-    "inventory_tx.json",  // needs party_id + material_id
-    "purchase_order.json" // needs party_id + material_id
+    "material.json",
+    "party.json",
+    "purchase_order.json",
+    "stockpile.json",
+    "inventory_tx.json",
   ];
-  
+
   await deleteAllData(orderedFileNames);
 
   for (const fileName of orderedFileNames) {
